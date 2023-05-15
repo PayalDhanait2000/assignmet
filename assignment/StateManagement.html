@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" , initial-scale=1.0">
+    <script src="keyValue.js"></script>
+    <title>Document</title>
+    <script>
+
+        ///Session Scope
+        window.addEventListener("load", function()
+        {
+            document.getElementById("sessionScope")
+            .addEventListener("click", function(){
+                const id = document.getElementById("txtId").value;
+                const name = document.getElementById("txtName").value;
+              
+                const emp = new Employee(id, name);
+
+                //localStorage stores only string
+                const stringData = JSON.stringify(emp);
+                sessionStorage.setItem("myEmpDetails", stringData);
+                alert("Emp info is stored")  
+            })
+
+          
+        })
+
+
+          ///Application Scope
+
+          
+        
+          window.addEventListener("load", function()
+        {
+            document.getElementById("applicationScope")
+            .addEventListener("click", function(){
+                const id = document.getElementById("txtId").value;
+                const name = document.getElementById("txtName").value;
+              
+                const emp = new Employee(id, name);
+
+              
+
+                alert("Emp info is stored")  
+            })
+
+          
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Employee Registration</h1>
+        <p>
+            Enter the Id: <input id="txtId"/>
+        </p>
+        <p>
+            Enter the Name: <input id="txtName"/>
+        </p>
+        <p>Choose the scope:</p>
+        <button id="session" onclick="sessionScope">Session Scope</button>
+        <button id="application" onclick="applicationScope">Application Scope</button>
+        <button id="page" onclick="pageScope">Page Scope</button>
+       
+    </div>
+   
+</body>
+</html>
